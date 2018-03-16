@@ -1,0 +1,24 @@
+plugins {
+    id "me.champeau.gradle.jmh" version "0.4.5"
+    id "com.github.ben-manes.versions" version "0.17.0"
+}
+
+apply plugin: 'java'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile 'org.slf4j:slf4j-api:1.7.21'
+    compile 'org.slf4j:slf4j-simple:1.7.21'
+    compile 'org.openjdk.jmh:jmh-core:1.19'
+    compile 'org.openjdk.jmh:jmh-generator-annprocess:1.19'
+
+    compile 'com.fasterxml.jackson.dataformat:jackson-dataformat-cbor:2.9.4'
+    compile 'com.fasterxml.jackson.dataformat:jackson-dataformat-smile:2.9.4'
+    compile 'org.msgpack:jackson-dataformat-msgpack:0.8.14'
+    compile 'commons-io:commons-io:2.6'
+}
+
+defaultTasks 'clean', 'jmh'

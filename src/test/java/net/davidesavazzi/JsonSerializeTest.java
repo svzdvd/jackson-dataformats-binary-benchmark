@@ -1,4 +1,4 @@
-package com.vsware.services;
+package net.davidesavazzi;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonNode;

@@ -1,4 +1,4 @@
-package com.vsware.services;
+package net.davidesavazzi;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.MappingJsonFactory;
@@ -8,7 +8,6 @@ import com.fasterxml.jackson.dataformat.smile.SmileFactory;
 import org.apache.commons.io.IOUtils;
 import org.msgpack.jackson.dataformat.MessagePackFactory;
 import org.openjdk.jmh.annotations.*;
-import org.openjdk.jmh.util.FileUtils;
 
 import java.io.*;
 import java.nio.charset.Charset;
@@ -16,7 +15,6 @@ import java.util.concurrent.TimeUnit;
 import java.util.zip.GZIPInputStream;
 import java.util.zip.GZIPOutputStream;
 
-import static com.vsware.services.JsonSerializeTest.resourceAsString;
 import static java.util.Base64.getDecoder;
 import static java.util.Base64.getEncoder;
 
@@ -49,7 +47,7 @@ public class JsonDeserializeTest {
         smileObjectMapper = new ObjectMapper(new SmileFactory());
         messagePackObjectMapper = new ObjectMapper(new MessagePackFactory());
 
-        jsonString = resourceAsString("/generated.json");
+        jsonString = JsonSerializeTest.resourceAsString("/generated.json");
         JsonNode object = jsonObjectMapper.readValue(jsonString, JsonNode.class);
 
         cborBytes = cborObjectMapper.writeValueAsBytes(object);

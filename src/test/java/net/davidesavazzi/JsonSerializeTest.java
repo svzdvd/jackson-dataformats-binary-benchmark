@@ -43,7 +43,7 @@ public class JsonSerializeTest {
     }
 
     @Benchmark
-    public String serializeWithJsonObjectMapper() throws JsonProcessingException {
+    public String serializeStringWithJsonObjectMapper() throws JsonProcessingException {
         return jsonObjectMapper.writeValueAsString(object);
     }
 

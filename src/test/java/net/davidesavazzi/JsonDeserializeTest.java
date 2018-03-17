@@ -73,7 +73,7 @@ public class JsonDeserializeTest {
     }
 
     @Benchmark
-    public JsonNode deserializeWithJsonObjectMapper() throws IOException {
+    public JsonNode deserializeStringWithJsonObjectMapper() throws IOException {
         return jsonObjectMapper.readValue(jsonString, JsonNode.class);
     }
 
